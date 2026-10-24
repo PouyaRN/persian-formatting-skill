@@ -1,92 +1,166 @@
-<div dir="rtl" align="center">
+<div align="center">
 
-# 🇮🇷 مهارت جامع نگارش فارسی و راست‌چین برای هوش مصنوعی
-### Persian Typography, Natural Voice (De-AI) & Universal RTL Skill for AI Agents
+# 🇮🇷 Persian Typography, Natural Voice & Universal RTL Skill for AI
+### Comprehensive Standards, De-AI-ing Guidelines & Cross-Platform RTL Rules for AI Coding Assistants
 
-**یک مهارت جامع، چندسکویی و استاندارد برای دستیارهای کدنویسی و مدل‌های زبانی:**  
-Google Antigravity | Claude Code | Cursor | GitHub Copilot | Windsurf | ChatGPT
+**Built for modern AI agents and LLMs:**  
+Google Antigravity • Claude Code • Cursor • GitHub Copilot • Windsurf • ChatGPT • Claude.ai
 
+[![Persian Documentation](https://img.shields.io/badge/Language-%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-green.svg)](README.fa.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/PouyaRN/persian-formatting-skill/pulls)
 [![RTL Supported](https://img.shields.io/badge/RTL-100%25-orange.svg)](#)
+
+[**🇮🇷 مشاهده مستندات فارسی (Persian Documentation)**](README.fa.md) • [English Documentation](README.md)
 
 </div>
 
 ---
 
-<div dir="rtl">
+## 📌 Why is this skill essential?
 
-## 🎯 چرا این مهارت لازم است؟
+While modern Large Language Models (GPT-4o, Claude 3.7, Gemini 2.5) understand Persian well, they consistently struggle with stylistic nuances, typographic conventions, and layout engineering:
 
-مدل‌های هوش مصنوعی (مانند GPT-4، Claude 3.7، Gemini 2.5) با وجود قدرت بالا در درک زبان فارسی، هنگام تولید متن، کد فرانت‌اند و مستندات دچار مشکلات زیر می‌شوند:
-1. **لحن رباتیک و ترجمه‌ای:** استفاده مکرر از افعال مرده مثل «می‌باشد»، «لازم به ذکر است» و مقدمه‌چینی‌های کلیشه‌ای.
-2. **به‌هم‌ریختگی ترکیبی (BiDi):** جابجا شدن پرانتزها، کلمات انگلیسی و علائم نگارشی حین خروجی در چت یا مارک‌داون.
-3. **تخریب کلمات با `letter-spacing`:** هوش مصنوعی در کدهای CSS برای زیبایی به تیترها فاصله بین حروف می‌دهد که حروف متصل فارسی را متلاشی می‌کند.
-4. **خرابی متون فارسی در مایکروسافت اکسل:** فایل‌های CSV که علامت‌سؤال (`????`) می‌شوند.
-5. **مشکل فونت در سیستم کاربران:** نبود فونت محلی استاندارد و به‌هم‌ریختگی چاپ و تبدیل PDF.
+1. **Robotic & Translated Tone:** Excessive repetition of passive/archaic verbs like `"می‌باشد"` instead of `"است"`, clichéd filler openers (`"لازم به ذکر است"`, `"شایان ذکر است"`, `"در دنیای پرشتاب امروزی"`), and translationese phrasing.
+2. **Broken BiDi & Text Direction:** Mixed Latin/Persian sentences get mangled in markdown and chat bubbles (parentheses flip, numbers jump to the wrong side of sentences).
+3. **Glyph Disconnection via `letter-spacing`:** AI assistants frequently inject CSS `letter-spacing` into Persian/Arabic headings, breaking the connected cursive ligatures of the alphabet.
+4. **Excel CSV Encoding Corruption:** Exported Persian CSV files open as garbled question marks (`????`) in Microsoft Excel due to missing UTF-8 Byte Order Marks (BOM).
+5. **Client-side Missing Fonts:** Rendered HTML documents and PDFs fail or degrade on devices that do not have local Persian fonts installed.
 
-این مهارت با مجموعه‌ای از قوانین مهندسی‌شده و دقیق، خروجی تمامی دستیارها را در تولید محتوا، کد و سند به بالاترین استاندارد ارتقا می‌دهد.
+This skill equips AI models with battle-tested guardrails to produce natural, grammatically sound, typographically pleasing, and layout-safe Persian text, code, and documents.
 
 ---
 
-## ⚡ نصب و استفاده سریع بر اساس پلتفرم
+## 🚀 Quick Setup Across Platforms
 
-| پلتفرم شما | نحوه راه‌اندازی |
+| Platform | Setup Instructions |
 | :--- | :--- |
-| **Google Antigravity** | فایل `SKILL.md` را در مسیر `~/.gemini/config/skills/persian-formatting/SKILL.md` کپی کنید. |
-| **Cursor IDE** | فایل `rules/persian.mdc` را در پوشه `.cursor/rules/` قرار دهید یا متن آن را در `.cursorrules` بگذارید. |
-| **Claude Code (CLI)** | فایل `SKILL.md` را در `.claude/skills/persian-formatting/SKILL.md` کپی کرده یا محتوای `rules/CLAUDE.md` را در ریشه پروژه قرار دهید. |
-| **GitHub Copilot** | محتوای `rules/copilot-instructions.md` را در ریشه پروژه داخل مسیر `.github/copilot-instructions.md` بگذارید. |
-| **Windsurf** | فایل `rules/windsurfrules` را در ریشه پروژه قرار دهید. |
-| **ChatGPT / Claude Web** | بخش‌های ۱ تا ۴ فایل `SKILL.md` را در بخش **Custom Instructions** جای‌گذاری کنید. |
+| **Google Antigravity** | Copy [`SKILL.md`](SKILL.md) to `~/.gemini/config/skills/persian-formatting/SKILL.md` or `.agent/skills/` in your repository. |
+| **Cursor IDE** | Copy [`rules/persian.mdc`](rules/persian.mdc) to `.cursor/rules/persian.mdc` or append its content to `.cursorrules`. |
+| **Claude Code (Anthropic)** | Copy [`SKILL.md`](SKILL.md) to `.claude/skills/persian-formatting/SKILL.md` or append [`rules/CLAUDE.md`](rules/CLAUDE.md) to your project's `CLAUDE.md`. |
+| **GitHub Copilot** | Copy [`rules/copilot-instructions.md`](rules/copilot-instructions.md) into `.github/copilot-instructions.md` in your project root. |
+| **Windsurf** | Copy [`rules/windsurfrules`](rules/windsurfrules) into `.windsurfrules` in your repository. |
+| **ChatGPT / Claude Web** | Paste sections 1 to 4 of [`SKILL.md`](SKILL.md) into **Custom Instructions** or your project's system prompt. |
 
 ---
 
-## 🌟 قابلیت‌های کلیدی
+## 🌟 Core Pillars & Capabilities
 
-### ۱. لحن طبیعی و انسانی (De-AI-ing)
-* جایگزینی ۹۵٪ فعل‌های «می‌باشد» با افعال طبیعی و روان «است» و «هست».
-* حذف عبارات پرکننده و ترجمه‌ای مانند «در دنیای پرشتاب امروزی...» و «شایان ذکر است...».
-* اصلاح خودکار حروف عربی (`ي` و `ك`) به حروف اصیل فارسی (`ی` و `ک`).
+### 1. Natural Voice & De-AI-ing (انسانی‌سازی لحن)
+* **Elimination of `"می‌باشد"`:** Automatically replaces 95% of passive/archaic occurrences with natural, conversational `"است"` or context-appropriate active verbs.
+* **Stripping Robotic Clichés:** Removes generic preamble phrases (`"لازم به ذکر است"`, `"شایان ذکر است"`, `"همان‌طور که می‌دانید"`).
+* **Character Normalization:** Enforces authentic Persian characters (`ی` and `ک`) instead of Arabic variants (`ي` and `ك`).
 
-### ۲. استانداردهای حیاتی فرانت‌اند و CSS
-* **ممنوعیت `letter-spacing`:** اجبار به حفظ اتصال طبیعی حروف الفبای فارسی.
-* **فیلدهای ورودی حساس:** تنظیم خودکار `dir="ltr"` برای موبایل، کد ملی، کارت بانکی، ایمیل و پسورد.
-* **ویژگی‌های منطقی (Logical Properties):** جایگزینی خودکار `margin-left` با `margin-inline-start` برای پشتیبانی کامل از دوزبانه بودن.
-* **فونت وب استاندارد (CDN Fallback):** لود خودکار فونت Vazirmatn در خروجی‌های وب تا حتی روی سیستم‌های فاقد فونت محلی، متون چشم‌نواز باشند.
+### 2. Frontend & CSS Safety Guardrails
+* **Strict `letter-spacing` Prohibition:** Prevents AI from applying letter spacing to Persian fonts, safeguarding natural script ligatures.
+* **Sensitive Input Direction:** Forces `dir="ltr"` on numeric/alphanumeric inputs (phone numbers, national IDs, bank cards, IBANs, passwords, OTPs) to eliminate cursor jumping.
+* **CSS Logical Properties:** Automatically prefers `margin-inline-start`, `padding-inline-start`, and `border-inline-start` (and Tailwind `ms-*`, `me-*`, `ps-*`, `pe-*`) for native bidirectional support.
+* **Universal Google Fonts Fallback:** Integrates open-source **Vazirmatn** via Google Fonts CDN in all standalone HTML layouts so outputs look pristine on every client machine.
 
-### ۳. ایزولاسیون کامل در چت و مارک‌داون
-* کپسوله‌سازی خروجی با استایل RTL در اینترفیس‌های وب.
-* استفاده از برچسب `<bdi>` و بک‌تیک برای ایزوله کردن کلمات و اصطلاحات انگلیسی وسط متن.
-* رعایت نیم‌فاصله‌های استاندارد (ZWNJ)، گیومه‌های فارسی (« ») و ممیز فارسی (`٫`).
+### 3. BiDi & Layout Isolation
+* **Chat Encapsulation:** Encloses responses in an explicit RTL container for platforms supporting HTML styling.
+* **Token Isolation:** Isolates Latin terms, code symbols, and acronyms using backticks, `<bdi>`, or `<span class="en-font" dir="ltr">`.
+* **Accurate Typography:** Enforces Zero-Width Non-Joiners (ZWNJ / نیم‌فاصله), Persian quotation marks («...»), and authentic decimal separators (`۴٫۵` instead of `۴.5`).
 
-### ۴. اسناد اداری، اکسل و خروجی PDF
-* انکودینگ **UTF-8 with BOM** برای جلوگیری از خرابی فایل‌های CSV در Excel.
-* دستورات دقیق و آزمایش‌شده Chrome Headless برای تولید فایل PDF در سه سیستم‌عامل Windows، macOS و Linux.
+### 4. Data Encoding & Headless PDF Generation
+* **Excel Compatibility:** Guarantees **UTF-8 with BOM** (`utf-8-sig` in Python, `\uFEFF` in JS) for CSV files to prevent Excel character corruption.
+* **Cross-Platform Chrome Headless:** Provides validated commands for Windows, macOS, and Linux to convert Persian HTML to vector-perfect PDFs.
 
 ---
 
-## 📂 ساختار فایل‌های مخزن
+## 💻 HTML & Print-Ready Template
+
+When creating Persian documents or PDF reports, the AI utilizes this resilient boilerplate:
+
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persian Document</title>
+    <!-- Google Fonts CDN Fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        body {
+            direction: rtl;
+            text-align: right;
+            font-family: 'IRANYekanX', 'IRANYekanXVF', 'Vazirmatn', 'B Yekan', Tahoma, sans-serif;
+            font-feature-settings: "ss01"; /* Persian numerals in supporting fonts */
+            letter-spacing: normal !important; /* Critical: prevent breaking cursive ligatures */
+            line-height: 1.8;
+            margin: 0;
+            padding: 24px;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+        .en-font, [dir="ltr"] {
+            direction: ltr;
+            text-align: left;
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .code-font, code, pre {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+            unicode-bidi: isolate;
+        }
+        @page {
+            size: A4 portrait;
+            margin: 12mm 15mm;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <!-- Content goes here -->
+</body>
+</html>
+```
+
+### Exporting to PDF via Headless Chrome:
+* **Windows (PowerShell):**
+  ```powershell
+  & "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="output.pdf" "input.html"
+  ```
+* **macOS:**
+  ```bash
+  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="output.pdf" "input.html"
+  ```
+* **Linux:**
+  ```bash
+  google-chrome --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="output.pdf" "input.html"
+  ```
+
+---
+
+## 📂 Repository Structure
 
 ```text
-├── SKILL.md                  # فایل کامل اسکیل و استاندارد اصلی
-├── README.md                 # راهنمای فارسی و نحوه استفاده
-├── LICENSE                   # پروانه متن‌باز MIT
-└── rules/                    # تنظیمات آماده کپی در ابزارهای مختلف
-    ├── persian.mdc           # ویژه Cursor IDE
-    ├── CLAUDE.md             # ویژه Claude Code
-    ├── copilot-instructions.md # ویژه GitHub Copilot
-    └── windsurfrules         # ویژه Windsurf
+├── SKILL.md                  # Universal skill file for AI agent engines
+├── README.md                 # English documentation and architecture
+├── README.fa.md              # مستندات کامل به زبان فارسی
+├── LICENSE                   # MIT License
+└── rules/                    # Ready-to-use rule snippets for coding tools
+    ├── persian.mdc           # Cursor IDE rule file
+    ├── CLAUDE.md             # Claude Code instruction file
+    ├── copilot-instructions.md # GitHub Copilot configuration
+    └── windsurfrules         # Windsurf Cascade rule file
 ```
 
 ---
 
-## 🤝 مشارکت و بهبود (Contributing)
+## 🤝 Contributing
 
-پیشنهادات، اصلاح قوانین نگارشی و افزودن تمپلیت برای ابزارهای جدید با استقبال کامل پذیرفته می‌شود. لطفاً یک Issue یا Pull Request ثبت کنید!
+Contributions, feedback, and edge-case reports are warmly welcomed! If you encounter specific AI hallucinations, broken ligatures, or missing tool adapters, please feel free to open an issue or submit a pull request.
 
-## 📜 پروانه (License)
+## 📄 License
 
-این پروژه تحت پروانه [MIT](LICENSE) منتشر شده است و استفاده از آن برای مقاصد شخصی و تجاری کاملاً آزاد و رایگان است.
-
-</div>
+This project is licensed under the [MIT License](LICENSE) — free for personal and commercial use.
